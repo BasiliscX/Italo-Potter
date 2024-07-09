@@ -24,15 +24,15 @@ u16 level_pallete[64];
 //     PAL_fadeIn(0,63,level_pallete, 100, TRUE);
 // }
 
-// static void initBackground() {
-//     VDP_loadTileSet(&stadium_tileset, ind, DMA);
-//     level_1_map = MAP_create(&stadium_map, BG_B, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, ind));
-//     PAL_setPalette(PAL0, gh_palette.data, DMA);
-//     MAP_scrollTo(level_1_map, 0, 0);
-// }
-
 static void initBackground() {
-    PAL_setPalette(PAL0, bg1.palette->data, DMA);
-    VDP_drawImageEx(BG_B, &bg1, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, ind), 0, 0, FALSE, TRUE);
-    ind += bg1.tileset->numTile;
+    VDP_loadTileSet(&stadium_tileset, ind, DMA);
+    level_1_map = MAP_create(&stadium_map, BG_B, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, ind));
+    PAL_setPalette(PAL0, gh_palette.data, DMA);
+    MAP_scrollTo(level_1_map, 1370, 1050);
 }
+
+// static void initBackground() {
+//     PAL_setPalette(PAL0, bg1.palette->data, DMA);
+//     VDP_drawImageEx(BG_B, &bg1, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, ind), 0, 0, FALSE, TRUE);
+//     ind += bg1.tileset->numTile;
+// }
