@@ -12,8 +12,8 @@ int current_camera_x, current_camera_y;
 
 #define HORIZONTAL_RESOLUTION 320
 #define VERTICAL_RESOLUTION 224
-#define MAP_WIDTH 1600
-#define MAP_HEIGHT 1200
+#define MAP_WIDTH 1024
+#define MAP_HEIGHT 1024
 
 static void camera_play();
 int main(){
