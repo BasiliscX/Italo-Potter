@@ -1,7 +1,7 @@
 // Tilemap
 // --------------------------------------------------
 
-#define SOLID_TILE 1
+#define SOLID_TILE 2
 
 const u16 LENGTH_OF_LEVEL_COLITION_ARRAY = 20;
 

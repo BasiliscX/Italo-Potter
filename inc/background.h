@@ -28,7 +28,8 @@ static void initBackground() {
     VDP_loadTileSet(&stadium_tileset, ind, DMA);
     level_1_map = MAP_create(&stadium_map, BG_B, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, ind));
     PAL_setPalette(PAL0, gh_palette.data, DMA);
-    MAP_scrollTo(level_1_map, 640, 950);
+    // MAP_scrollTo(level_1_map, 786, 1066);
+    // MAP_scrollTo(level_1_map, 0, 768);
 }
 
 // static void initBackground() {

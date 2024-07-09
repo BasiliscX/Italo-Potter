@@ -13,8 +13,8 @@
 #define PLAYER_COLBOX_BUTTON 48
 
 Sprite* player;
-fix32 player_x = FIX32(132);
-fix32 player_y = FIX32(100);
+fix32 player_x = FIX32(786);
+fix32 player_y = FIX32(1066);
 fix32 attackTime = FIX32(0);
 fix32 player_velocity = FIX32(2);
 bool player_move_left = FALSE;
@@ -23,6 +23,8 @@ bool player_move_up = FALSE;
 bool player_move_down = FALSE;
 
 char info_x[10];
+char info_y[10];
+
 
 static void initPlayer() {
     SPR_init();
@@ -151,4 +153,6 @@ static void initColition(){
 
     sprintf(info_x, "%10li", fix32ToInt(player_x));
     VDP_drawTextBG(BG_A, info_x, 0, 5);
+    sprintf(info_y, "%10li", fix32ToInt(player_y));
+    VDP_drawTextBG(BG_A, info_y, 0, 6);
 }
