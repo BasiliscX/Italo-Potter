@@ -3,5 +3,9 @@
     "${env:GDK}\\res",
     "res",
     "inc"
-]
+],
+"files.associations": {
+    "colition_maps.h": "c",
+    "player.h": "c"
+}
 }
