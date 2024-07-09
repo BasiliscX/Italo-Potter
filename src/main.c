@@ -11,9 +11,9 @@ int main(){
     initPlayer();
 
     while(1){
+        SPR_update();
         initColition();
         attackEvent();
-        SPR_update();
         SYS_doVBlankProcess();
     }
     return (0);
