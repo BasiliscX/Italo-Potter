@@ -1,28 +1,11 @@
-#ifndef CAMERA_H
-#define CAMERA_H
-
-#include <genesis.h>
-#include "player.h"
-
+int current_camera_x = 0;
+int current_camera_y = 0;
 #define HOW_FAR_TO_LEFT_BEFORE_CAMERA_MOVES 152
 #define HOW_FAR_TO_RIGHT_BEFORE_CAMERA_MOVES 153
 #define HOW_FAR_TO_TOP_BEFORE_CAMERA_MOVES 115
 #define HOW_FAR_TO_BOTTOM_BEFORE_CAMERA_MOVES 116
 
-#define HORIZONTAL_RESOLUTION 320
-#define VERTICAL_RESOLUTION 224
-#define MAP_WIDTH 512
-#define MAP_HEIGHT 512
-
-int current_camera_x;
-int current_camera_y;
-
-void initCamera() {
-    current_camera_x = 0;
-    current_camera_y = 0;
-}
-
-void updateCamera() {
+static void camera_play(){
     if(player_x < FIX32(0)){
         player_x = FIX32(0);
     } else if(player_x > FIX32(MAP_WIDTH - PLAYER_WIDTH)){
@@ -72,7 +55,7 @@ void updateCamera() {
     }
 
     if((current_camera_x != new_camera_x) || (current_camera_y != new_camera_y)){
-        current_camera_x = new_camera_x;
+        current_camera_x = new_camera_x;  // Corregido
         current_camera_y = new_camera_y;
 
         MAP_scrollTo(level_1_map, new_camera_x, new_camera_y);
@@ -80,5 +63,3 @@ void updateCamera() {
 
     SPR_setPosition(player, fix32ToInt(player_x) - new_camera_x, fix32ToInt(player_y) - new_camera_y);
 }
-
-#endif // CAMERA_H

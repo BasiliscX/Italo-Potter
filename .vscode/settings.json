@@ -7,6 +7,8 @@
 "files.associations": {
     "colition_maps.h": "c",
     "player.h": "c",
-    "background.h": "c"
+    "background.h": "c",
+    "snitch.h": "c",
+    "camera.h": "c"
 }
 }

@@ -12,8 +12,8 @@
 #define PLAYER_COLBOX_BOTTOM 48
 
 Sprite* player;
-fix32 player_x = FIX32(0);
-fix32 player_y = FIX32(400);
+fix32 player_x = FIX32(272);
+fix32 player_y = FIX32(422);
 fix32 attackTime = FIX32(0);
 fix32 player_velocity = FIX32(3);
 bool player_move_left = FALSE;
