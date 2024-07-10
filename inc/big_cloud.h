@@ -9,9 +9,9 @@ fix32 big_cloud_velocity = FIX32(0.5);
 
 // Función para inicializar el sprite Big Cloud
 static void initBigCloud() {
-    PAL_setPalette(PAL0, big_cloud.palette->data, DMA);
+    PAL_setPalette(PAL3, gh_palette.data, DMA);
     // big_cloud_sprite = SPR_addSprite(&big_cloud, fix32ToInt(big_cloud_x), fix32ToInt(big_cloud_y), TILE_ATTR(PAL2, TRUE, FALSE, FALSE));
-    VDP_drawImageEx(BG_A, &big_cloud, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, ind), fix32ToInt(big_cloud_x), fix32ToInt(big_cloud_y), FALSE, TRUE);
+    VDP_drawImageEx(BG_A, &big_cloud, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, ind), fix32ToInt(big_cloud_x), fix32ToInt(big_cloud_y), FALSE, TRUE);
     // ind += big_cloud.tileset->numTile;
 }
 
