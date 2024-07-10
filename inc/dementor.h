@@ -1,3 +1,5 @@
+#define DEMENTOR_IDLE 0
+#define DEMENTOR_ATACK 1
 
 #define DEMENTOR_WIDTH  32
 #define DEMENTOR_HEIGHT 32
@@ -69,6 +71,7 @@ static void updateDementorPositions() {
                 player_velocity = FIX32(1);
                 is_player_slowed = TRUE;
                 SPR_setAnim(player, PLAYER1_WALK);
+                SPR_setAnim(dementor_sprites[i], DEMENTOR_ATACK); 
             }
         } else {
             // Si el jugador está en la mitad inferior, los Dementores patrullan de izquierda a derecha en el borde superior
@@ -85,6 +88,7 @@ static void updateDementorPositions() {
                     dementor_moving_right[i] = TRUE;
                 }
             }
+            SPR_setAnim(dementor_sprites[i], DEMENTOR_IDLE); 
         }
 
         // Mantener distancia mínima entre dementores
