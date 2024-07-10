@@ -135,8 +135,8 @@ static void initCollision() {
         }
     }
 
-    // sprintf(info_x, "%10li", fix32ToInt(player_x));
-    // VDP_drawTextBG(BG_A, info_x, 0, 5);
-    // sprintf(info_y, "%10li", fix32ToInt(player_y));
-    // VDP_drawTextBG(BG_A, info_y, 0, 6);
+    sprintf(info_x, "%10li", fix32ToInt(player_x));
+    VDP_drawTextBG(BG_A, info_x, 0, 5);
+    sprintf(info_y, "%10li", fix32ToInt(player_y));
+    VDP_drawTextBG(BG_A, info_y, 0, 6);
 }

@@ -4,7 +4,7 @@
 
 Sprite* big_cloud_sprite;
 fix32 big_cloud_x = FIX32(0);
-fix32 big_cloud_y = FIX32(32);
+fix32 big_cloud_y = FIX32(0);
 fix32 big_cloud_velocity = FIX32(0.5);
 
 // Función para inicializar el sprite Big Cloud
@@ -16,10 +16,10 @@ static void initBigCloud() {
 }
 
 // Función para actualizar la posición del Big Cloud cruzando el nivel
-static void updateBigCloudPosition() {
-    big_cloud_x += big_cloud_velocity;
-    if (big_cloud_x > FIX32(MAP_WIDTH)) {
-        big_cloud_x = FIX32(0) - FIX32(BIG_CLOUD_WIDTH); // Resetear la posición al inicio cuando se sale del nivel
-    }
-    SPR_setPosition(big_cloud_sprite, fix32ToInt(big_cloud_x), fix32ToInt(big_cloud_y));
-}
+// static void updateBigCloudPosition() {
+//     big_cloud_x += big_cloud_velocity;
+//     if (big_cloud_x > FIX32(MAP_WIDTH)) {
+//         big_cloud_x = FIX32(0) - FIX32(BIG_CLOUD_WIDTH); // Resetear la posición al inicio cuando se sale del nivel
+//     }
+//     SPR_setPosition(big_cloud_sprite, fix32ToInt(big_cloud_x), fix32ToInt(big_cloud_y));
+// }

@@ -14,7 +14,7 @@ int main() {
     initPlayer();
     initSnitch(); // Inicializar el sprite snitch
     initDementors(); // Inicializar los sprites dementores
-    // initBigCloud(); // Inicializar el sprite big cloud
+    initBigCloud(); // Inicializar el sprite big cloud
 
     while(1) {
         handleInputEvent();
