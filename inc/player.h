@@ -139,21 +139,3 @@ static void initCollision() {
     sprintf(info_y, "%10li", fix32ToInt(player_y));
     VDP_drawTextBG(BG_A, info_y, 0, 6);
 }
-
-static void checkCollisionWithSnitch() {
-    int player_left = fix32ToInt(player_x);
-    int player_right = player_left + PLAYER_WIDTH;
-    int player_top = fix32ToInt(player_y);
-    int player_bottom = player_top + PLAYER_HEIGHT;
-
-    int snitch_left = fix32ToInt(snitch_x);
-    int snitch_right = snitch_left + SNITCH_WIDTH;
-    int snitch_top = fix32ToInt(snitch_y);
-    int snitch_bottom = snitch_top + SNITCH_HEIGHT;
-
-    if (player_right > snitch_left && player_left < snitch_right &&
-        player_bottom > snitch_top && player_top < snitch_bottom) {
-        snitch_caught_count++;  // Incrementar el contador de snitch atrapados
-        randomizeSnitchPosition();  // Reaparecer el snitch en un punto aleatorio
-    }
-}
