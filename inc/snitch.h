@@ -81,7 +81,7 @@ static void checkCollisionWithPlayer() {
         collision_count++;
         char collision_count_str[20];
         sprintf(collision_count_str, "Capturas: %d", collision_count);
-        VDP_drawText(collision_count_str, 10, 10);
+        VDP_drawText(collision_count_str, 0, 1);
         
         // Reposicionar el snitch en una ubicación aleatoria en el borde superior
         snitch_x = FIX32(random() % (MAP_WIDTH - SNITCH_WIDTH));

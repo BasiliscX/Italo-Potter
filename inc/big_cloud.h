@@ -1,9 +1,8 @@
-
 #define BIG_CLOUD_WIDTH  160
 #define BIG_CLOUD_HEIGHT 64
 
 Sprite* big_cloud_sprite;
-fix32 big_cloud_x = FIX32(0);
+fix32 big_cloud_x = FIX32(11);
 fix32 big_cloud_y = FIX32(0);
 fix32 big_cloud_velocity = FIX32(0.5);
 
@@ -13,6 +12,7 @@ static void initBigCloud() {
     // big_cloud_sprite = SPR_addSprite(&big_cloud, fix32ToInt(big_cloud_x), fix32ToInt(big_cloud_y), TILE_ATTR(PAL2, TRUE, FALSE, FALSE));
     VDP_drawImageEx(BG_A, &big_cloud, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, ind), fix32ToInt(big_cloud_x), fix32ToInt(big_cloud_y), FALSE, TRUE);
     // ind += big_cloud.tileset->numTile;
+    VDP_drawText("Capturas", 0, 1);
 }
 
 // Función para actualizar la posición del Big Cloud cruzando el nivel
