@@ -8,3 +8,5 @@ PALETTE gh_palette "img/large-map-dev.png"
 
 
 SPRITE sprite "img/italo-sheet.png" 6 6 FAST 4
+
+SPRITE snitch "img/snitch-sheet.png" 4 4 FAST 4

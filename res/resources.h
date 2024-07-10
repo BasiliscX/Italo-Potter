@@ -5,5 +5,6 @@ extern const TileSet stadium_tileset;
 extern const MapDefinition stadium_map;
 extern const Palette gh_palette;
 extern const SpriteDefinition sprite;
+extern const SpriteDefinition snitch;
 
 #endif // _RES_RESOURCES_H_
