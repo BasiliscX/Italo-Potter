@@ -68,6 +68,7 @@ static void updateDementorPositions() {
                 dementor_y[i] + FIX32(DEMENTOR_HEIGHT) > player_y_pos) {
                 player_velocity = FIX32(1);
                 is_player_slowed = TRUE;
+                SPR_setAnim(player, PLAYER1_WALK);
             }
         } else {
             // Si el jugador está en la mitad inferior, los Dementores patrullan de izquierda a derecha en el borde superior
