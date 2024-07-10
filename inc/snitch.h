@@ -1,3 +1,5 @@
+#define SNITCH_FLY 0
+
 #define SNITCH_WIDTH  32
 #define SNITCH_HEIGHT 32
 
@@ -17,6 +19,7 @@ int collision_count = 0;
 static void initSnitch() {
     PAL_setPalette(PAL2, snitch.palette->data, DMA);
     snitch_sprite = SPR_addSprite(&snitch, fix32ToInt(snitch_x), fix32ToInt(snitch_y), TILE_ATTR(PAL2, TRUE, FALSE, FALSE));
+    SPR_setAnim(snitch_sprite, SNITCH_FLY);
 }
 
 static void updateSnitchPosition() {
@@ -32,6 +35,7 @@ static void updateSnitchPosition() {
         case 0: // Mover a la izquierda
             if (snitch_x > FIX32(0)) {
                 snitch_x -= snitch_velocity;
+                SPR_setHFlip(snitch_sprite, TRUE); // Apuntar a la izquierda
             } else {
                 current_direction = 1; // Cambiar a la dirección opuesta si alcanza el borde
             }
@@ -39,6 +43,7 @@ static void updateSnitchPosition() {
         case 1: // Mover a la derecha
             if (snitch_x < FIX32(MAP_WIDTH - SNITCH_WIDTH)) {
                 snitch_x += snitch_velocity;
+                SPR_setHFlip(snitch_sprite, FALSE); // Apuntar a la derecha
             } else {
                 current_direction = 0; // Cambiar a la dirección opuesta si alcanza el borde
             }
