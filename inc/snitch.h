@@ -1,5 +1,3 @@
-#include <genesis.h>
-#include <resources.h>
 
 #define SNITCH_WIDTH  32
 #define SNITCH_HEIGHT 32
@@ -7,12 +5,12 @@
 Sprite* snitch_sprite;
 fix32 snitch_x = FIX32(128);
 fix32 snitch_y = FIX32(128);
-fix32 snitch_velocity = FIX32(5);
+fix32 snitch_velocity = FIX32(1);
 
-// Dirección actual del movimiento: 0 = izquierda, 1 = derecha, 2 = arriba, 3 = abajo
 int current_direction = 0;
-// Contador para mantener la dirección actual durante algunos ciclos antes de cambiar
 int direction_counter = 0;
+int snitch_caught_count = 0;
+char snitch_caught[10];
 
 static void initSnitch() {
     PAL_setPalette(PAL2, snitch.palette->data, DMA);
@@ -22,6 +20,7 @@ static void initSnitch() {
 static void randomizeSnitchPosition() {
     snitch_x = FIX32(random() % (MAP_WIDTH - SNITCH_WIDTH));
     snitch_y = FIX32(random() % (MAP_HEIGHT - SNITCH_HEIGHT));
+    SPR_setPosition(snitch_sprite, fix32ToInt(snitch_x), fix32ToInt(snitch_y));
 }
 
 static void updateSnitchPosition() {
@@ -66,4 +65,7 @@ static void updateSnitchPosition() {
 
     // Actualizar la posición del sprite
     SPR_setPosition(snitch_sprite, fix32ToInt(snitch_x), fix32ToInt(snitch_y));
+
+    sprintf(snitch_caught, "%10i", snitch_caught_count);
+    VDP_drawTextBG(BG_A, snitch_caught, 0, 7);
 }

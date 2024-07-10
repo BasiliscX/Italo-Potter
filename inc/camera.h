@@ -5,11 +5,6 @@ int current_camera_y = 0;
 #define HOW_FAR_TO_TOP_BEFORE_CAMERA_MOVES 115
 #define HOW_FAR_TO_BOTTOM_BEFORE_CAMERA_MOVES 116
 
-#define HORIZONTAL_RESOLUTION 320
-#define VERTICAL_RESOLUTION 224
-#define MAP_WIDTH 512
-#define MAP_HEIGHT 512
-
 static void camera_play(){
     if(player_x < FIX32(0)){
         player_x = FIX32(0);

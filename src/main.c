@@ -1,10 +1,10 @@
 #include <genesis.h>
 #include <resources.h>
 #include <colition_maps.h>
-#include <player.h>
 #include <background.h>
-#include <camera.h>
 #include <snitch.h>
+#include <player.h>
+#include <camera.h>
 
 int main(){
     initBackground();
@@ -18,7 +18,8 @@ int main(){
         initCollision();
         attackEvent();
         camera_play();
-        updateSnitchPosition(); // Actualizar la posición del sprite snitch
+        updateSnitchPosition();
+        checkCollisionWithSnitch();
         SPR_update();
         SYS_doVBlankProcess();
     }
