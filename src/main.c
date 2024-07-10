@@ -12,15 +12,15 @@ int current_camera_x, current_camera_y;
 
 #define HORIZONTAL_RESOLUTION 320
 #define VERTICAL_RESOLUTION 224
-#define MAP_WIDTH 1024
-#define MAP_HEIGHT 1024
+#define MAP_WIDTH 512
+#define MAP_HEIGHT 512
 
 static void camera_play();
 int main(){
     
+    initBackground();
     JOY_setEventHandler(joyEventHandler);
     initPlayer();
-    initBackground();
 
     while(1){
         SPR_update();

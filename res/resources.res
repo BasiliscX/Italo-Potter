@@ -1,6 +1,6 @@
 # IMAGE bg1 "img/zwerkbalveld-8x8-1p16c-s.bmp" BEST ALL
 
-# IMAGE bg1 "img/background - 512 256 (1).png" BEST ALL
+# IMAGE bg1 "img/large-map.png" BEST ALL
 
 # FUNCIONAL:
 # IMAGE bg1 "img/zwerkbalveld-8x8-1p16c-s - copia.bmp" BEST ALL

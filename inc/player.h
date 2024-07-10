@@ -13,10 +13,10 @@
 #define PLAYER_COLBOX_BUTTON 48
 
 Sprite* player;
-fix32 player_x = FIX32(786);
-fix32 player_y = FIX32(1066);
+fix32 player_x = FIX32(0);
+fix32 player_y = FIX32(400);
 fix32 attackTime = FIX32(0);
-fix32 player_velocity = FIX32(2);
+fix32 player_velocity = FIX32(3);
 bool player_move_left = FALSE;
 bool player_move_right = FALSE;
 bool player_move_up = FALSE;
