@@ -1,3 +1,4 @@
+
 #define DEMENTOR_WIDTH  32
 #define DEMENTOR_HEIGHT 32
 
@@ -7,7 +8,7 @@
 Sprite* dementor_sprites[NUM_DEMENTORS];
 fix32 dementor_x[NUM_DEMENTORS] = { FIX32(64), FIX32(128) };
 fix32 dementor_y[NUM_DEMENTORS] = { FIX32(0), FIX32(0) }; // Patrulla en el borde superior
-fix32 dementor_velocity = FIX32(1);
+fix32 dementor_velocity = FIX32(0.5);
 bool dementor_moving_right[NUM_DEMENTORS] = { TRUE, TRUE };
 
 // Función para inicializar los sprites Dementor
@@ -42,6 +43,7 @@ static void updateDementorPositions() {
     // Obtener las posiciones del jugador
     fix32 player_x_pos = player_x;
     fix32 player_y_pos = player_y;
+    bool is_player_slowed = FALSE;
 
     for (int i = 0; i < NUM_DEMENTORS; i++) {
         // Verificar si el jugador está en la mitad superior del mapa
@@ -57,6 +59,15 @@ static void updateDementorPositions() {
                 dementor_y[i] += dementor_velocity;
             } else if (dementor_y[i] > player_y_pos) {
                 dementor_y[i] -= dementor_velocity;
+            }
+
+            // Reducir la velocidad del jugador si el Dementor está encima
+            if (dementor_x[i] < player_x_pos + FIX32(PLAYER_WIDTH) &&
+                dementor_x[i] + FIX32(DEMENTOR_WIDTH) > player_x_pos &&
+                dementor_y[i] < player_y_pos + FIX32(PLAYER_HEIGHT) &&
+                dementor_y[i] + FIX32(DEMENTOR_HEIGHT) > player_y_pos) {
+                player_velocity = FIX32(1);
+                is_player_slowed = TRUE;
             }
         } else {
             // Si el jugador está en la mitad inferior, los Dementores patrullan de izquierda a derecha en el borde superior
@@ -80,5 +91,10 @@ static void updateDementorPositions() {
 
         // Actualizar la posición del sprite
         SPR_setPosition(dementor_sprites[i], fix32ToInt(dementor_x[i]), fix32ToInt(dementor_y[i]));
+    }
+
+    // Recuperar la velocidad del jugador si no está siendo ralentizado por ningún Dementor
+    if (!is_player_slowed) {
+        player_velocity = player_original_velocity;
     }
 }
