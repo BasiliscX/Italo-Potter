@@ -6,8 +6,9 @@
 
 Sprite* dementor_sprites[NUM_DEMENTORS];
 fix32 dementor_x[NUM_DEMENTORS] = { FIX32(64), FIX32(128) };
-fix32 dementor_y[NUM_DEMENTORS] = { FIX32(64), FIX32(128) };
+fix32 dementor_y[NUM_DEMENTORS] = { FIX32(0), FIX32(0) }; // Patrulla en el borde superior
 fix32 dementor_velocity = FIX32(1);
+bool dementor_moving_right[NUM_DEMENTORS] = { TRUE, TRUE };
 
 // Función para inicializar los sprites Dementor
 static void initDementors() {
@@ -58,17 +59,20 @@ static void updateDementorPositions() {
                 dementor_y[i] -= dementor_velocity;
             }
         } else {
-            // Si el jugador está en la mitad inferior, los Dementores vuelven al borde superior
-            if (dementor_y[i] > FIX32(0)) {
-                dementor_y[i] -= dementor_velocity;
+            // Si el jugador está en la mitad inferior, los Dementores patrullan de izquierda a derecha en el borde superior
+            if (dementor_moving_right[i]) {
+                if (dementor_x[i] < FIX32(MAP_WIDTH - DEMENTOR_WIDTH)) {
+                    dementor_x[i] += dementor_velocity;
+                } else {
+                    dementor_moving_right[i] = FALSE;
+                }
+            } else {
+                if (dementor_x[i] > FIX32(0)) {
+                    dementor_x[i] -= dementor_velocity;
+                } else {
+                    dementor_moving_right[i] = TRUE;
+                }
             }
-        }
-
-        // Asegurarse de que el Dementor se mantenga en la mitad superior del mapa
-        if (dementor_y[i] > FIX32((MAP_HEIGHT / 2) - DEMENTOR_HEIGHT)) {
-            dementor_y[i] = FIX32((MAP_HEIGHT / 2) - DEMENTOR_HEIGHT);
-        } else if (dementor_y[i] < FIX32(0)) {
-            dementor_y[i] = FIX32(0);
         }
 
         // Mantener distancia mínima entre dementores
