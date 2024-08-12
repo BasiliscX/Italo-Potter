@@ -16,8 +16,8 @@ bool dementor_moving_right[NUM_DEMENTORS] = { TRUE, TRUE };
 // Función para inicializar los sprites Dementor
 static void initDementors() {
     for (int i = 0; i < NUM_DEMENTORS; i++) {
-        PAL_setPalette(PAL3, dementor.palette->data, DMA);
-        dementor_sprites[i] = SPR_addSprite(&dementor, fix32ToInt(dementor_x[i]), fix32ToInt(dementor_y[i]), TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+        PAL_setPalette(PAL1, dementor.palette->data, DMA);
+        dementor_sprites[i] = SPR_addSprite(&dementor, fix32ToInt(dementor_x[i]), fix32ToInt(dementor_y[i]), TILE_ATTR(PAL1, TRUE, FALSE, FALSE));
     }
 }
 
