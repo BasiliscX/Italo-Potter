@@ -16,6 +16,7 @@ fix32 player_x = FIX32(272);
 fix32 player_y = FIX32(422);
 fix32 attackTime = FIX32(0);
 fix32 player_velocity = FIX32(3);
+fix32 player_original_velocity = FIX32(3); // Velocidad original del jugador
 bool player_move_left = FALSE;
 bool player_move_right = FALSE;
 bool player_move_up = FALSE;

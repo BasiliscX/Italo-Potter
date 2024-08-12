@@ -4,7 +4,9 @@
 extern const TileSet stadium_tileset;
 extern const MapDefinition stadium_map;
 extern const Palette gh_palette;
+extern const Image big_cloud;
 extern const SpriteDefinition sprite;
 extern const SpriteDefinition snitch;
+extern const SpriteDefinition dementor;
 
 #endif // _RES_RESOURCES_H_
